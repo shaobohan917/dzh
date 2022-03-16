@@ -1,0 +1,13 @@
+.item_name {
+    font-size: 2rem;
+    color: black;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    font-style: inherit;
+}
+.item_price {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-line-clamp: 2;
+}

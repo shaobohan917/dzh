@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保险详情页</title>
+</head>
+
+<body>
+    <h1>保险详情页</h1>
+
+    <script>
+        window.onload = function () {
+            checkUrl()
+        }
+
+        function checkUrl() {
+            var url = window.location.href
+            if (url.indexOf('idou_token' > -1)) {
+                var tokenValue = getQueryString("idou_token")
+                if (tokenValue == 'NoToken') {
+                    var url = window.location.href
+                    window.location.href = 'dzh_browser_url&goto=0&screen=403&url=' + url
+                }
+                alert('token:' + tokenValue)
+            }
+        }
+
+        //获取url上的参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+        document.onreadystatechange
+    </script>
+</body>
+
+</html>

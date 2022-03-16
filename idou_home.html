@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱豆测试首页</title>
+    <link rel="stylesheet" href="./css/dzh.css"><link>
+    <script src="./js/dzh.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <a href="./idou_detail.html">
+            <div class="item_name">名称名称名称名称名称名称名称名称名称名称名称名称名称</div>
+            <div class="item_price">价格</div>
+            <div class="item_count">个数</div>
+        </a>
+    </div>
+
+    <script>
+        function onTokenCallback(token) {
+            alert('获取到的token为:' , token)
+        }
+        function getToken() {
+            DzhAppJs.callAppWithChannelAndJsonAndCallbackFunc('getIdouTokenFunc', '', 'onTokenCallback')
+        }
+
+        function goDetail(){
+           window.location.href = addOrgToUrl('./idou_detail.html','DZHSPECIAL','1')
+        }
+    </script>
+</body>
+</html>

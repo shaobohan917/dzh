@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/static/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="all" />
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta http-equiv="pragma" content="no-cach" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="format-detection" content="telephone=no" />
+  </head>
+
+  <body ontouchstart="" id="container">
+    <h1>猜涨跌</h1>
+    <div onclick="doCopy()" id="url">复制到剪贴板</div>
+    <a href="dzh://share.gw.com.cn/openapp/download.html">打开大智慧app</a>
+
+    <script>
+      function doCopy() {
+        var oInput = document.createElement("input");
+        var json = {
+          type: "0",
+          data: {
+            url: "http://10.15.47.231:8148/index/pop",
+          },
+        };
+        oInput.value =
+          "♀EK7zrttfV56QboghMQPcuOhxzmVN0fTqF8mNX9MXK48suhW1MG9363pVVJFThdjrbBp0mKvRvNznGd/hlKUYvoAXRPwfzwymEapSMCwmI0Am0+7fb6fct9FtVcuVEYGgPWP0LIt14p9596Sf8/R5xA==♂";
+        document.body.appendChild(oInput);
+        oInput.select(); // 选择对象
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        oInput.style.display = "none";
+        alert("复制成功");
+      }
+
+      window.onload = function () {
+        console.log("onload");
+      };
+
+      window.onclose = function () {
+        console.log("onclose");
+      };
+
+      window.onpagehide = function () {
+        console.log("onpagehide");
+      };
+
+      window.onfocus = function () {
+        console.log("onfocus");
+      };
+
+      var onElementLoad = function () {
+        console.log("hsb 图片加载ev:" + event);
+      };
+
+      setTimeout(() => {
+        // location.href = "dzh_browser_url&goto=0&screen=399&hide=1";
+      }, 100);
+
+      //判断页面是否可见;
+      var hiddenProperty =
+        "hidden" in document
+          ? "hidden"
+          : "webkitHidden" in document
+          ? "webkitHidden"
+          : "mozHidden" in document
+          ? "mozHidden"
+          : null;
+      // var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+      var visibilityChangeEvent = "visibilitychange";
+      var onVisibilityChange = function () {
+        if (!document[hiddenProperty]) {
+          console.log("页面展示");
+          // location.href = "dzh_browser_url&goto=0&screen=399&hide=1"
+        } else {
+          console.log("页面隐藏");
+          // location.href = "dzh_browser_url&goto=0&screen=399&hide=0"
+        }
+      };
+      document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+
+      document.addEventListener("visibilitychange", function () {
+        console.log("visibility change");
+      });
+
+      var onreadystatechange = function () {
+        console.log("state:" + onreadystatechange);
+      };
+      document.addEventListener("onreadystatechange", onreadystatechange);
+    </script>
+  </body>
+</html>

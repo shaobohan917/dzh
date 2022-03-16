@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ol>
+        <li onclick='addstock(dzh)'>大智慧</li>
+        <li onclick='addstock(gzmt)'>贵州茅台</li>
+    </ol>
+
+    <a href="https://hanshaobo.top/dzh/idou_home.html?DZHSPECIAL=4">测试跳转</a>
+
+    <script>
+
+
+        var dzh = 'SH601519'
+        var gzmt = 'SH600519'
+        function addstock(code) {
+            var operation = 0;
+            var group_id = 1607049105141405;
+            var json = {
+                "operation": operation,
+                "group_id": group_id,
+                "codes": [
+                    code
+                ]
+            }
+            DzhAppJs.callAppWithChannelAndJsonAndCallbackFunc('addSelfStockListFunc', JSON.stringify(json), 'onSelfStockList')
+            // alert('调用添加股票方法:' + JSON.stringify(json))
+        }
+
+        function onSelfStockList(result) {
+            alert('添加结果:' + result)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button onclick="getDZHTokenFunc()">getDZHTokenFunc</button>
+    </div>
+    <div>
+        <button onclick="setHtmlKeyValueDataFunc()">setHtmlKeyValueDataFunc</button>
+    </div>
+    <div>
+        <button onclick="getHtmlKeyValueDataFunc()">getHtmlKeyValueDataFunc</button>
+    </div>
+    <div>
+        <button onclick="getThemeStyle()">调用客户端方法获取当前主题</button>
+    </div>
+    <div>
+        <button onclick="setTitle()">setTitle</button>
+    </div>
+    <div>
+        <button onclick="sspMobileInfo()">sspMobileInfo</button>
+    </div>
+    <div>
+        <button onclick="addSelfStockListFunc()">addSelfStockListFunc</button>
+    </div>
+
+    <script>
+        function getDZHTokenFunc() {
+            DzhAppJs.callAppWithChannelAndJsonAndCallbackFunc('getDZHTokenFunc', '', 'onTokenCallback')
+        }
+        function onTokenCallback(token) {
+            alert("token为:" + token)
+        }
+        function setHtmlKeyValueDataFunc() {
+            DzhAppJs.callAppWithChannelAndJsonAndCallbackFunc('setHtmlKeyValueDataFunc', 'test', 'onHtmlKeyValueSetCallback')
+        }
+        function onHtmlKeyValueSetCallback(set) {
+            alert("set为:" + set)
+        }
+        function getHtmlKeyValueDataFunc() {
+            DzhAppJs.callAppWithChannelAndJsonAndCallbackFunc('getHtmlKeyValueDataFunc', '', 'onHtmlKeyValueGetCallback')
+        }
+        function onHtmlKeyValueGetCallback(get) {
+            alert("get为:" + get)
+        }
+        function getThemeStyle() {
+            DzhAppJs.callAppWithChannelAndJsonAndCallbackFunc('getThemeStyleFunc', '', 'onThemeStyleCallback')
+        }
+        function onThemeStyleCallback(theme) {
+            alert('当前主题为:' + theme)
+        }
+        function setTitle() {
+            DzhAppJs.callAppWithChannelAndJsonAndCallbackFunc('setTitle', 'this is title', '')
+        }
+        function sspMobileInfo() {
+            DzhAppJs.callAppWithChannelAndJsonAndCallbackFunc('sspMobileInfo', '', 'onSspMobileInfo')
+        }
+        function onSspMobileInfo(info) {
+            alert('info:' + info)
+        }
+    </script>
+
+</body>
+
+</html>
